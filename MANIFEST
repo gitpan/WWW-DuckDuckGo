@@ -6,6 +6,7 @@ META.yml
 Makefile.PL
 README
 dist.ini
+lib/WWW/DDG.pm
 lib/WWW/DuckDuckGo.pm
 lib/WWW/DuckDuckGo/Icon.pm
 lib/WWW/DuckDuckGo/Link.pm

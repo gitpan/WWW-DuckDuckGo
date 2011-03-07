@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::Icon::AUTHORITY = 'cpan:GETTY';
 }
 BEGIN {
-  $WWW::DuckDuckGo::Icon::VERSION = '0.001';
+  $WWW::DuckDuckGo::Icon::VERSION = '0.002';
 }
 # ABSTRACT: A DuckDuckGo Icon definition
 
@@ -35,6 +35,8 @@ has height => (
 );
 
 1;
+
+
 __END__
 =pod
 
@@ -44,7 +46,57 @@ WWW::DuckDuckGo::Icon - A DuckDuckGo Icon definition
 
 =head1 VERSION
 
-version 0.001
+version 0.002
+
+=head1 SYNOPSIS
+
+  use WWW::DuckDuckGo;
+
+  my $zci = WWW::DuckDuckGo->new->zci('duck duck go');
+  
+  for (@{$zci->results}) {
+    print "Result URL: ".$_->first_url->as_string."\n" if $_->has_first_url;
+    print "Result Icon: ".$_->icon->url->as_string."\n" if $_->has_icon and $_->icon->has_url;
+  }
+
+=head1 DESCRIPTION
+
+This package reflects the result of a zeroclickinfo API request.
+
+=head1 METHODS
+
+=head2 has_url
+
+=head2 url
+
+Gives back a URI::http
+
+=head2 has_width
+
+=head2 width
+
+=head2 has_height
+
+=head2 height
+
+=encoding utf8
+
+=head1 METHODS
+
+=head1 SUPPORT
+
+IRC
+
+  Join #duckduckgo on irc.freenode.net. Highlight Getty for fast reaction :).
+
+Repository
+
+  http://github.com/Getty/p5-www-duckduckgo
+  Pull request and additional contributors are welcome
+
+Issue Tracker
+
+  http://github.com/Getty/p5-www-duckduckgo/issues
 
 =head1 AUTHOR
 

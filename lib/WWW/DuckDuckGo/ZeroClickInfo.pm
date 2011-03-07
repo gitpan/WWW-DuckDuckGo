@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::ZeroClickInfo::AUTHORITY = 'cpan:GETTY';
 }
 BEGIN {
-  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.001';
+  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.002';
 }
 # ABSTRACT: A DuckDuckGo Zero Click Info definition
 
@@ -130,6 +130,8 @@ sub type_long {
 }
 
 1;
+
+
 __END__
 =pod
 
@@ -139,7 +141,112 @@ WWW::DuckDuckGo::ZeroClickInfo - A DuckDuckGo Zero Click Info definition
 
 =head1 VERSION
 
-version 0.001
+version 0.002
+
+=head1 SYNOPSIS
+
+  use WWW::DuckDuckGo;
+
+  my $zci = WWW::DuckDuckGo->new->zci('duck duck go');
+  
+  print "Heading: ".$zci->heading if $zci->has_heading;
+  
+  print "The answer is: ".$zci->answer if $zci->has_answer;
+
+=head1 DESCRIPTION
+
+This package reflects the result of a zeroclickinfo API request.
+
+=head1 METHODS
+
+=head2 has_abstract
+
+=head2 abstract
+
+=head2 has_abstract_text
+
+=head2 abstract_text
+
+=head2 has_abstract_source
+
+=head2 abstract_source
+
+=head2 has_abstract_url
+
+=head2 abstract_url
+
+Gives back a URI::http
+
+=head2 has_image
+
+=head2 image
+
+Gives back a URI::http
+
+=head2 has_heading
+
+=head2 heading
+
+=head2 has_answer
+
+=head2 answer
+
+=head2 has_answer_type
+
+=head2 answer_type
+
+=head2 has_definition
+
+=head2 definition
+
+=head2 has_definition_source
+
+=head2 definition_source
+
+=head2 has_definition_url
+
+=head2 definition_url
+
+Gives back a URI::http
+
+=head2 has_related_topics
+
+=head2 related_topics
+
+Gives back an array reference of L<WWW::DuckDuckGo::Link> objects.
+
+=head2 has_results
+
+=head2 results
+
+Gives back an array reference of L<WWW::DuckDuckGo::Link> objects.
+
+=head2 has_type
+
+=head2 type
+
+=head2 type_long
+
+Gives back a longer version of the type.
+
+=encoding utf8
+
+=head1 METHODS
+
+=head1 SUPPORT
+
+IRC
+
+  Join #duckduckgo on irc.freenode.net. Highlight Getty for fast reaction :).
+
+Repository
+
+  http://github.com/Getty/p5-www-duckduckgo
+  Pull request and additional contributors are welcome
+
+Issue Tracker
+
+  http://github.com/Getty/p5-www-duckduckgo/issues
 
 =head1 AUTHOR
 
