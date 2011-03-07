@@ -3,9 +3,9 @@ BEGIN {
   $WWW::DDG::AUTHORITY = 'cpan:GETTY';
 }
 BEGIN {
-  $WWW::DDG::VERSION = '0.002';
+  $WWW::DDG::VERSION = '0.003';
 }
-# ABSTRACT: Short alias for WWW::DuckDuckGo
+# ABSTRACT: Short alias for L<WWW::DuckDuckGo>
 
 use Moo;
 
@@ -18,11 +18,11 @@ __END__
 
 =head1 NAME
 
-WWW::DDG - Short alias for WWW::DuckDuckGo
+WWW::DDG - Short alias for L<WWW::DuckDuckGo>
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 AUTHOR
 

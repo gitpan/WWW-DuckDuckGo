@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::AUTHORITY = 'cpan:GETTY';
 }
 BEGIN {
-  $WWW::DuckDuckGo::VERSION = '0.002';
+  $WWW::DuckDuckGo::VERSION = '0.003';
 }
 # ABSTRACT: Access to the DuckDuckGo APIs
 
@@ -72,13 +72,13 @@ WWW::DuckDuckGo - Access to the DuckDuckGo APIs
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
   use WWW::DuckDuckGo;
 
-  my $duck = WWW::DuckDuckGo;
+  my $duck = WWW::DuckDuckGo->new;
   
   # request the Zero Click Info, you can also use ..->zci('duck duck go')
   my $zeroclickinfo = $duck->zeroclickinfo('duck duck go');
