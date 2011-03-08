@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::AUTHORITY = 'cpan:GETTY';
 }
 BEGIN {
-  $WWW::DuckDuckGo::VERSION = '0.003';
+  $WWW::DuckDuckGo::VERSION = '0.004';
 }
 # ABSTRACT: Access to the DuckDuckGo APIs
 
@@ -24,6 +24,12 @@ has _duckduckgo_api_url => (
 	default => sub { 'http://api.duckduckgo.com/' },
 );
 
+has _duckduckgo_api_url_secure => (
+	is => 'ro',
+	lazy => 1,
+	default => sub { 'https://api.duckduckgo.com/' },
+);
+
 has _zeroclickinfo_class => (
 	is => 'ro',
 	lazy => 1,
@@ -31,14 +37,25 @@ has _zeroclickinfo_class => (
 );
 
 has _http_agent => (
-	is => 'rw',
+	is => 'ro',
 	lazy => 1,
 	default => sub {
 		my $self = shift;
 		my $ua = LWP::UserAgent->new;
-		$ua->agent(__PACKAGE__.'/'.$VERSION);
+		$ua->agent($self->http_agent_name);
 		return $ua;
 	},
+);
+
+has http_agent_name => (
+	is => 'ro',
+	lazy => 1,
+	default => sub { __PACKAGE__.'/'.$VERSION },
+);
+
+has forcesecure => (
+	is => 'ro',
+	default => sub { 0 },
 );
 
 sub zci { shift->zeroclickinfo(@_) }
@@ -47,11 +64,23 @@ sub zeroclickinfo {
 	my ( $self, @query_fields ) = @_;
 	return if !@query_fields;
 	my $query = join(' ',@query_fields);
-	my $uri = URI->new($self->_duckduckgo_api_url);
-	$uri->query_param( q => $query );
-	$uri->query_param( o => 'json' );
-	my $req = HTTP::Request->new(GET => $uri->as_string);
-	my $res = $self->_http_agent->request($req);
+	my $res;
+	eval {
+		my $uri = URI->new($self->_duckduckgo_api_url_secure);
+		$uri->query_param( q => $query );
+		$uri->query_param( o => 'json' );
+		my $req = HTTP::Request->new(GET => $uri->as_string);
+		$res = $self->_http_agent->request($req);
+	};
+	if (!$self->forcesecure and ( $@ or !$res or !$res->is_success ) ) {
+		warn __PACKAGE__." HTTP request failed: ".$res->status_line if ($res and !$res->is_success);
+		warn __PACKAGE__." Can't access ".$self->_duckduckgo_api_url_secure." falling back to: ".$self->_duckduckgo_api_url;
+		my $uri = URI->new($self->_duckduckgo_api_url);
+		$uri->query_param( q => $query );
+		$uri->query_param( o => 'json' );
+		my $req = HTTP::Request->new(GET => $uri->as_string);
+		$res = $self->_http_agent->request($req);	
+	}
 	if ($res->is_success) {
 		my $result = decode_json($res->content);
 		return $self->_zeroclickinfo_class->by($result);
@@ -72,7 +101,7 @@ WWW::DuckDuckGo - Access to the DuckDuckGo APIs
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
@@ -88,7 +117,17 @@ version 0.003
 
 =head1 DESCRIPTION
 
-This distribution gives you an easy access to the DuckDuckGo Zero Click Info API.
+This distribution gives you an easy access to the DuckDuckGo Zero Click Info API. It tries to connect via https first and falls back to http if there is a failure.
+
+=head1 ATTRIBUTES
+
+=head2 forcesecure
+
+Set to true will force the client to use https, so it will not fallback to http on failure.
+
+=head2 http_agent_name
+
+Set the http agent name which the webserver gets. Defaults to WWW::DuckDuckGo
 
 =head1 METHODS
 
@@ -101,6 +140,8 @@ Return value: L<WWW::DuckDuckGo::ZeroClickInfo>
 Returns the L<WWW::DuckDuckGo::ZeroClickInfo> of the query specified by the parameters. If you give several parameters they will get joined with an empty space.
 
 =encoding utf8
+
+=head1 ATTRIBUTES
 
 =head1 METHODS
 
