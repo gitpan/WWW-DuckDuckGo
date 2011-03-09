@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DDG::AUTHORITY = 'cpan:GETTY';
 }
 BEGIN {
-  $WWW::DDG::VERSION = '0.005';
+  $WWW::DDG::VERSION = '0.006';
 }
 # ABSTRACT: Short alias for L<WWW::DuckDuckGo>
 
@@ -22,7 +22,7 @@ WWW::DDG - Short alias for L<WWW::DuckDuckGo>
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 AUTHOR
 

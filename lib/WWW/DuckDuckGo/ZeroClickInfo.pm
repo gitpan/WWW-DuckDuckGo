@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::ZeroClickInfo::AUTHORITY = 'cpan:GETTY';
 }
 BEGIN {
-  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.005';
+  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.006';
 }
 # ABSTRACT: A DuckDuckGo Zero Click Info definition
 
@@ -112,7 +112,7 @@ has definition_url => (
 
 sub default_related_topics {
 	my ( $self ) = @_;
-	defined $self->related_topics_sections->{_} if $self->has_related_topics_sections;
+	$self->related_topics_sections->{_} if $self->has_related_topics_sections;
 }
 
 sub has_default_related_topics {
@@ -172,7 +172,7 @@ WWW::DuckDuckGo::ZeroClickInfo - A DuckDuckGo Zero Click Info definition
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 

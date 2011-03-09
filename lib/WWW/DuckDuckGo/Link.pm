@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::Link::AUTHORITY = 'cpan:GETTY';
 }
 BEGIN {
-  $WWW::DuckDuckGo::Link::VERSION = '0.005';
+  $WWW::DuckDuckGo::Link::VERSION = '0.006';
 }
 # ABSTRACT: A DuckDuckGo Link definition
 
@@ -55,7 +55,7 @@ WWW::DuckDuckGo::Link - A DuckDuckGo Link definition
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 
