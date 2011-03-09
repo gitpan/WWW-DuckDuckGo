@@ -42,7 +42,7 @@
          "web" : "http://github.com/Getty/p5-www-duckduckgo/tree"
       }
    },
-   "version" : "0.004",
+   "version" : "0.005",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
