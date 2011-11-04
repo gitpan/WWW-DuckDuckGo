@@ -2,8 +2,8 @@ package WWW::DuckDuckGo::ZeroClickInfo;
 BEGIN {
   $WWW::DuckDuckGo::ZeroClickInfo::AUTHORITY = 'cpan:GETTY';
 }
-BEGIN {
-  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.006';
+{
+  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.007';
 }
 # ABSTRACT: A DuckDuckGo Zero Click Info definition
 
@@ -172,7 +172,7 @@ WWW::DuckDuckGo::ZeroClickInfo - A DuckDuckGo Zero Click Info definition
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 
@@ -300,9 +300,19 @@ Issue Tracker
 
   http://github.com/Getty/p5-www-duckduckgo/issues
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Torsten Raudssus <torsten@raudssus.de>
+
+=item *
+
+Michael Smith <crazedpsyc@duckduckgo.com>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 

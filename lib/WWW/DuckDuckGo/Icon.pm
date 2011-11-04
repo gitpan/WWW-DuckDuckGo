@@ -2,8 +2,8 @@ package WWW::DuckDuckGo::Icon;
 BEGIN {
   $WWW::DuckDuckGo::Icon::AUTHORITY = 'cpan:GETTY';
 }
-BEGIN {
-  $WWW::DuckDuckGo::Icon::VERSION = '0.006';
+{
+  $WWW::DuckDuckGo::Icon::VERSION = '0.007';
 }
 # ABSTRACT: A DuckDuckGo Icon definition
 
@@ -46,7 +46,7 @@ WWW::DuckDuckGo::Icon - A DuckDuckGo Icon definition
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 
@@ -98,9 +98,19 @@ Issue Tracker
 
   http://github.com/Getty/p5-www-duckduckgo/issues
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Torsten Raudssus <torsten@raudssus.de>
+
+=item *
+
+Michael Smith <crazedpsyc@duckduckgo.com>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 

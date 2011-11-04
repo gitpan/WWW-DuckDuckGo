@@ -2,8 +2,8 @@ package WWW::DuckDuckGo;
 BEGIN {
   $WWW::DuckDuckGo::AUTHORITY = 'cpan:GETTY';
 }
-BEGIN {
-  $WWW::DuckDuckGo::VERSION = '0.006';
+{
+  $WWW::DuckDuckGo::VERSION = '0.007';
 }
 # ABSTRACT: Access to the DuckDuckGo APIs
 
@@ -58,6 +58,11 @@ has forcesecure => (
 	default => sub { 0 },
 );
 
+has safeoff => (
+	is => 'ro',
+	default => sub { 0 },
+);
+
 sub zci { shift->zeroclickinfo(@_) }
 
 sub zeroclickinfo {
@@ -69,6 +74,7 @@ sub zeroclickinfo {
 		my $uri = URI->new($self->_duckduckgo_api_url_secure);
 		$uri->query_param( q => $query );
 		$uri->query_param( o => 'json' );
+		$uri->query_param( kp => -1 ) if $self->safeoff;
 		my $req = HTTP::Request->new(GET => $uri->as_string);
 		$res = $self->_http_agent->request($req);
 	};
@@ -101,7 +107,7 @@ WWW::DuckDuckGo - Access to the DuckDuckGo APIs
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 
@@ -128,6 +134,10 @@ Set to true will force the client to use https, so it will not fallback to http 
 =head2 http_agent_name
 
 Set the http agent name which the webserver gets. Defaults to WWW::DuckDuckGo
+
+=head2 safeoff
+
+Set to true to disable safesearch.
 
 =head1 METHODS
 
@@ -160,9 +170,19 @@ Issue Tracker
 
   http://github.com/Getty/p5-www-duckduckgo/issues
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Torsten Raudssus <torsten@raudssus.de>
+
+=item *
+
+Michael Smith <crazedpsyc@duckduckgo.com>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 

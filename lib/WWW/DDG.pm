@@ -2,8 +2,8 @@ package WWW::DDG;
 BEGIN {
   $WWW::DDG::AUTHORITY = 'cpan:GETTY';
 }
-BEGIN {
-  $WWW::DDG::VERSION = '0.006';
+{
+  $WWW::DDG::VERSION = '0.007';
 }
 # ABSTRACT: Short alias for L<WWW::DuckDuckGo>
 
@@ -22,11 +22,21 @@ WWW::DDG - Short alias for L<WWW::DuckDuckGo>
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+=over 4
+
+=item *
 
 Torsten Raudssus <torsten@raudssus.de>
+
+=item *
+
+Michael Smith <crazedpsyc@duckduckgo.com>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 
