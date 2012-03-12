@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::ZeroClickInfo::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.007';
+  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.008';
 }
 # ABSTRACT: A DuckDuckGo Zero Click Info definition
 
@@ -50,6 +50,7 @@ sub by {
 	$params{definition_source} = $result->{DefinitionSource} if $result->{DefinitionSource};
 	$params{definition_url} = URI->new($result->{DefinitionURL}) if $result->{DefinitionURL};
 	$params{type} = $result->{Type} if $result->{Type};
+	$params{html} = $result->{HTML} if $result->{HTML};
 	__PACKAGE__->new(%params);
 }
 
@@ -108,6 +109,11 @@ has definition_source => (
 has definition_url => (
 	is => 'ro',
 	predicate => 'has_definition_url',
+);
+
+has html => (
+	is => 'ro',
+	predicate => 'has_html',
 );
 
 sub default_related_topics {
@@ -172,7 +178,7 @@ WWW::DuckDuckGo::ZeroClickInfo - A DuckDuckGo Zero Click Info definition
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 SYNOPSIS
 
@@ -254,6 +260,10 @@ Gives back a URI::http
 =head2 has_definition_url
 
 =head2 definition_url
+
+=head2 has_html
+
+=head2 html
 
 Gives back a URI::http
 
