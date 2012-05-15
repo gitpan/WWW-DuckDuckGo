@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::ZeroClickInfo::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.008';
+  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.009';
 }
 # ABSTRACT: A DuckDuckGo Zero Click Info definition
 
@@ -51,6 +51,7 @@ sub by {
 	$params{definition_url} = URI->new($result->{DefinitionURL}) if $result->{DefinitionURL};
 	$params{type} = $result->{Type} if $result->{Type};
 	$params{html} = $result->{HTML} if $result->{HTML};
+    $params{redirect} = $result->{Redirect} if $result->{Redirect};
 	__PACKAGE__->new(%params);
 }
 
@@ -116,6 +117,11 @@ has html => (
 	predicate => 'has_html',
 );
 
+has redirect => (
+	is => 'ro',
+	predicate => 'has_redirect',
+);
+
 sub default_related_topics {
 	my ( $self ) = @_;
 	$self->related_topics_sections->{_} if $self->has_related_topics_sections;
@@ -178,7 +184,7 @@ WWW::DuckDuckGo::ZeroClickInfo - A DuckDuckGo Zero Click Info definition
 
 =head1 VERSION
 
-version 0.008
+version 0.009
 
 =head1 SYNOPSIS
 

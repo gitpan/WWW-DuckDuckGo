@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $WWW::DuckDuckGo::VERSION = '0.008';
+  $WWW::DuckDuckGo::VERSION = '0.009';
 }
 # ABSTRACT: Access to the DuckDuckGo APIs
 
@@ -75,6 +75,7 @@ sub zeroclickinfo {
 		$uri->query_param( q => $query );
 		$uri->query_param( o => 'json' );
 		$uri->query_param( kp => -1 ) if $self->safeoff;
+        $uri->query_param( no_redirect => 1 );
 		my $req = HTTP::Request->new(GET => $uri->as_string);
 		$res = $self->_http_agent->request($req);
 	};
@@ -84,6 +85,8 @@ sub zeroclickinfo {
 		my $uri = URI->new($self->_duckduckgo_api_url);
 		$uri->query_param( q => $query );
 		$uri->query_param( o => 'json' );
+		$uri->query_param( kp => -1 ) if $self->safeoff;
+        $uri->query_param( no_redirect => 1 );
 		my $req = HTTP::Request->new(GET => $uri->as_string);
 		$res = $self->_http_agent->request($req);	
 	}
@@ -107,7 +110,7 @@ WWW::DuckDuckGo - Access to the DuckDuckGo APIs
 
 =head1 VERSION
 
-version 0.008
+version 0.009
 
 =head1 SYNOPSIS
 
