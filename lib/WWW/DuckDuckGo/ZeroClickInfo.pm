@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::ZeroClickInfo::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.010';
+  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.011';
 }
 # ABSTRACT: A DuckDuckGo Zero Click Info definition
 
@@ -184,7 +184,7 @@ WWW::DuckDuckGo::ZeroClickInfo - A DuckDuckGo Zero Click Info definition
 
 =head1 VERSION
 
-version 0.010
+version 0.011
 
 =head1 SYNOPSIS
 

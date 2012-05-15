@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $WWW::DuckDuckGo::VERSION = '0.010';
+  $WWW::DuckDuckGo::VERSION = '0.011';
 }
 # ABSTRACT: Access to the DuckDuckGo APIs
 
@@ -110,7 +110,7 @@ WWW::DuckDuckGo - Access to the DuckDuckGo APIs
 
 =head1 VERSION
 
-version 0.010
+version 0.011
 
 =head1 SYNOPSIS
 

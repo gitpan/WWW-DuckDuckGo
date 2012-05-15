@@ -5,7 +5,7 @@
       "Michael Smith <crazedpsyc@duckduckgo.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300016, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 4.300016, CPAN::Meta::Converter version 2.120630",
    "license" : [
       "perl_5"
    ],
@@ -43,7 +43,7 @@
          "web" : "https://github.com/Getty/p5-www-duckduckgo"
       }
    },
-   "version" : "0.010",
+   "version" : "0.011",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -159,7 +159,7 @@
          {
             "class" : "Dist::Zilla::Plugin::InstallRelease",
             "name" : "@GETTY/InstallRelease",
-            "version" : "0.008"
+            "version" : "0.007"
          },
          {
             "class" : "Dist::Zilla::Plugin::Authority",
