@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::ZeroClickInfo::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.009';
+  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.010';
 }
 # ABSTRACT: A DuckDuckGo Zero Click Info definition
 
@@ -184,7 +184,7 @@ WWW::DuckDuckGo::ZeroClickInfo - A DuckDuckGo Zero Click Info definition
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 SYNOPSIS
 
@@ -296,6 +296,12 @@ Gives back an array reference of L<WWW::DuckDuckGo::Link> objects. Can be undef,
 =head2 type_long
 
 Gives back a longer version of the type.
+
+=head2 has_redirect
+
+=head2 redirect
+
+Access the URL it would redirect you to (for !bangs)
 
 =encoding utf8
 

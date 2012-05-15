@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::Icon::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $WWW::DuckDuckGo::Icon::VERSION = '0.009';
+  $WWW::DuckDuckGo::Icon::VERSION = '0.010';
 }
 # ABSTRACT: A DuckDuckGo Icon definition
 
@@ -46,7 +46,7 @@ WWW::DuckDuckGo::Icon - A DuckDuckGo Icon definition
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 SYNOPSIS
 

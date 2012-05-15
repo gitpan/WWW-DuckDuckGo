@@ -43,7 +43,7 @@
          "web" : "https://github.com/Getty/p5-www-duckduckgo"
       }
    },
-   "version" : "0.009",
+   "version" : "0.010",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
