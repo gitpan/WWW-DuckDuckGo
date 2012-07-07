@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $WWW::DuckDuckGo::VERSION = '0.012';
+  $WWW::DuckDuckGo::VERSION = '0.013';
 }
 # ABSTRACT: Access to the DuckDuckGo APIs
 
@@ -63,6 +63,11 @@ has safeoff => (
 	default => sub { 0 },
 );
 
+has html => (
+	is => 'ro',
+	default => sub { 0 },
+);
+
 sub zci { shift->zeroclickinfo(@_) }
 
 sub _zeroclickinfo_request_base {
@@ -73,6 +78,9 @@ sub _zeroclickinfo_request_base {
 	$uri->query_param( o => 'json' );
 	$uri->query_param( kp => -1 ) if $self->safeoff;
     $uri->query_param( no_redirect => 1 );
+    $self->html ? 
+        $uri->query_param( no_html => 0 ) : 
+        $uri->query_param( no_html => 1 );
 	return HTTP::Request->new(GET => $uri->as_string);
 }
 
@@ -126,7 +134,7 @@ WWW::DuckDuckGo - Access to the DuckDuckGo APIs
 
 =head1 VERSION
 
-version 0.012
+version 0.013
 
 =head1 SYNOPSIS
 
@@ -157,6 +165,10 @@ Set the http agent name which the webserver gets. Defaults to WWW::DuckDuckGo
 =head2 safeoff
 
 Set to true to disable safesearch.
+
+=head2 html
+
+Allow HTML in output. This is the default in DuckDuckGo, but not default here to maintain backwards compatibility.
 
 =head1 METHODS
 
