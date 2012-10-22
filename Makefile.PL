@@ -27,7 +27,7 @@ my %WriteMakefileArgs = (
     "Moo" => "0.009007",
     "URI" => "1.58"
   },
-  "VERSION" => "0.013",
+  "VERSION" => "0.014",
   "test" => {
     "TESTS" => "t/*.t"
   }

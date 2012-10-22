@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $WWW::DuckDuckGo::VERSION = '0.013';
+  $WWW::DuckDuckGo::VERSION = '0.014';
 }
 # ABSTRACT: Access to the DuckDuckGo APIs
 
@@ -68,12 +68,19 @@ has html => (
 	default => sub { 0 },
 );
 
+# HashRef of extra params
+has params => (
+    is => 'ro',
+    default => sub { {} },
+);
+
 sub zci { shift->zeroclickinfo(@_) }
 
 sub _zeroclickinfo_request_base {
 	my ( $self, $for_uri, @query_fields ) = @_;
 	my $query = join(' ',@query_fields);
 	my $uri = URI->new($for_uri);
+    my %params = %{$self->params};
 	$uri->query_param( q => $query );
 	$uri->query_param( o => 'json' );
 	$uri->query_param( kp => -1 ) if $self->safeoff;
@@ -81,6 +88,7 @@ sub _zeroclickinfo_request_base {
     $self->html ? 
         $uri->query_param( no_html => 0 ) : 
         $uri->query_param( no_html => 1 );
+    $uri->query_param($_ => $params{$_}) for keys %params;
 	return HTTP::Request->new(GET => $uri->as_string);
 }
 
@@ -124,8 +132,8 @@ sub zeroclickinfo_by_response {
 
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -134,7 +142,7 @@ WWW::DuckDuckGo - Access to the DuckDuckGo APIs
 
 =head1 VERSION
 
-version 0.013
+version 0.014
 
 =head1 SYNOPSIS
 
@@ -169,6 +177,10 @@ Set to true to disable safesearch.
 =head2 html
 
 Allow HTML in output. This is the default in DuckDuckGo, but not default here to maintain backwards compatibility.
+
+=head2 params
+
+A HashRef of extra GET params to pass with the query (documented on https://api.duckduckgo.com/)
 
 =head1 METHODS
 
@@ -223,4 +235,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

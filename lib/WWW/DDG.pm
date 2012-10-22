@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DDG::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $WWW::DDG::VERSION = '0.013';
+  $WWW::DDG::VERSION = '0.014';
 }
 # ABSTRACT: Short alias for L<WWW::DuckDuckGo>
 
@@ -14,6 +14,7 @@ extends 'WWW::DuckDuckGo';
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -22,7 +23,7 @@ WWW::DDG - Short alias for L<WWW::DuckDuckGo>
 
 =head1 VERSION
 
-version 0.013
+version 0.014
 
 =head1 AUTHORS
 
@@ -46,4 +47,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

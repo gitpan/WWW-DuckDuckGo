@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::ZeroClickInfo::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.013';
+  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.014';
 }
 # ABSTRACT: A DuckDuckGo Zero Click Info definition
 
@@ -174,8 +174,8 @@ sub type_long {
 
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -184,7 +184,7 @@ WWW::DuckDuckGo::ZeroClickInfo - A DuckDuckGo Zero Click Info definition
 
 =head1 VERSION
 
-version 0.013
+version 0.014
 
 =head1 SYNOPSIS
 
@@ -344,4 +344,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
