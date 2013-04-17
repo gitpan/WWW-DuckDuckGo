@@ -1,9 +1,9 @@
 package WWW::DuckDuckGo::ZeroClickInfo;
 BEGIN {
-  $WWW::DuckDuckGo::ZeroClickInfo::AUTHORITY = 'cpan:GETTY';
+  $WWW::DuckDuckGo::ZeroClickInfo::AUTHORITY = 'cpan:DDG';
 }
 {
-  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.014';
+  $WWW::DuckDuckGo::ZeroClickInfo::VERSION = '0.015';
 }
 # ABSTRACT: A DuckDuckGo Zero Click Info definition
 
@@ -37,6 +37,7 @@ sub by {
 	for (@{$result->{Results}}) {
 		push @results, $class->_link_class->by($_) if ref $_ eq 'HASH' and %{$_};
 	}
+        $params{_json} = $result;
 	$params{results} = \@results if @results;
 	$params{abstract} = $result->{Abstract} if $result->{Abstract};
 	$params{abstract_text} = $result->{AbstractText} if $result->{AbstractText};
@@ -56,6 +57,10 @@ sub by {
 }
 
 sub _link_class { 'WWW::DuckDuckGo::Link' }
+
+has _json => (
+	is => 'ro',
+);
 
 has abstract => (
 	is => 'ro',
@@ -174,8 +179,8 @@ sub type_long {
 
 1;
 
-__END__
 
+__END__
 =pod
 
 =head1 NAME
@@ -184,7 +189,7 @@ WWW::DuckDuckGo::ZeroClickInfo - A DuckDuckGo Zero Click Info definition
 
 =head1 VERSION
 
-version 0.014
+version 0.015
 
 =head1 SYNOPSIS
 
@@ -338,9 +343,10 @@ Michael Smith <crazedpsyc@duckduckgo.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by L<Raudssus Social Software|http://www.raudssus.de/>.
+This software is copyright (c) 2013 by L<DuckDuckGo, Inc.|https://duckduckgo.com/>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+

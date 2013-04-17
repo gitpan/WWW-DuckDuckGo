@@ -11,9 +11,7 @@ use ExtUtils::MakeMaker 6.30;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Access to the DuckDuckGo APIs",
   "AUTHOR" => "Torsten Raudssus <torsten\@raudssus.de>, Michael Smith <crazedpsyc\@duckduckgo.com>",
-  "BUILD_REQUIRES" => {
-    "Test::More" => "0.96"
-  },
+  "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
@@ -27,12 +25,28 @@ my %WriteMakefileArgs = (
     "Moo" => "0.009007",
     "URI" => "1.58"
   },
-  "VERSION" => "0.014",
+  "TEST_REQUIRES" => {
+    "Test::More" => "0.90"
+  },
+  "VERSION" => "0.015",
   "test" => {
     "TESTS" => "t/*.t"
   }
 );
 
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  my $tr = delete $WriteMakefileArgs{TEST_REQUIRES};
+  my $br = $WriteMakefileArgs{BUILD_REQUIRES};
+  for my $mod ( keys %$tr ) {
+    if ( exists $br->{$mod} ) {
+      $br->{$mod} = $tr->{$mod} if $tr->{$mod} > $br->{$mod};
+    }
+    else {
+      $br->{$mod} = $tr->{$mod};
+    }
+  }
+}
 
 unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
   my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};

@@ -14,3 +14,4 @@ lib/WWW/DuckDuckGo/ZeroClickInfo.pm
 t/00-load.t
 t/01-base.t
 t/release-pod-syntax.t
+weaver.ini

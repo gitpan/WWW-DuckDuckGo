@@ -1,9 +1,9 @@
 package WWW::DuckDuckGo;
 BEGIN {
-  $WWW::DuckDuckGo::AUTHORITY = 'cpan:GETTY';
+  $WWW::DuckDuckGo::AUTHORITY = 'cpan:DDG';
 }
 {
-  $WWW::DuckDuckGo::VERSION = '0.014';
+  $WWW::DuckDuckGo::VERSION = '0.015';
 }
 # ABSTRACT: Access to the DuckDuckGo APIs
 
@@ -132,8 +132,8 @@ sub zeroclickinfo_by_response {
 
 1;
 
-__END__
 
+__END__
 =pod
 
 =head1 NAME
@@ -142,7 +142,7 @@ WWW::DuckDuckGo - Access to the DuckDuckGo APIs
 
 =head1 VERSION
 
-version 0.014
+version 0.015
 
 =head1 SYNOPSIS
 
@@ -229,9 +229,10 @@ Michael Smith <crazedpsyc@duckduckgo.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by L<Raudssus Social Software|http://www.raudssus.de/>.
+This software is copyright (c) 2013 by L<DuckDuckGo, Inc.|https://duckduckgo.com/>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+

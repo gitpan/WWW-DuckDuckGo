@@ -1,9 +1,9 @@
 package WWW::DDG;
 BEGIN {
-  $WWW::DDG::AUTHORITY = 'cpan:GETTY';
+  $WWW::DDG::AUTHORITY = 'cpan:DDG';
 }
 {
-  $WWW::DDG::VERSION = '0.014';
+  $WWW::DDG::VERSION = '0.015';
 }
 # ABSTRACT: Short alias for L<WWW::DuckDuckGo>
 
@@ -14,7 +14,6 @@ extends 'WWW::DuckDuckGo';
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -23,7 +22,7 @@ WWW::DDG - Short alias for L<WWW::DuckDuckGo>
 
 =head1 VERSION
 
-version 0.014
+version 0.015
 
 =head1 AUTHORS
 
@@ -41,9 +40,10 @@ Michael Smith <crazedpsyc@duckduckgo.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by L<Raudssus Social Software|http://www.raudssus.de/>.
+This software is copyright (c) 2013 by L<DuckDuckGo, Inc.|https://duckduckgo.com/>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
+
