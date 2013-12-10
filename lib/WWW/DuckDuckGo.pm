@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::AUTHORITY = 'cpan:DDG';
 }
 {
-  $WWW::DuckDuckGo::VERSION = '0.015';
+  $WWW::DuckDuckGo::VERSION = '0.016';
 }
 # ABSTRACT: Access to the DuckDuckGo APIs
 
@@ -132,8 +132,8 @@ sub zeroclickinfo_by_response {
 
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -142,7 +142,7 @@ WWW::DuckDuckGo - Access to the DuckDuckGo APIs
 
 =head1 VERSION
 
-version 0.015
+version 0.016
 
 =head1 SYNOPSIS
 
@@ -219,7 +219,7 @@ Issue Tracker
 
 =item *
 
-Torsten Raudssus <torsten@raudssus.de>
+Torsten Raudssus <torsten@raudss.us> L<https://raudss.us/>
 
 =item *
 
@@ -235,4 +235,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

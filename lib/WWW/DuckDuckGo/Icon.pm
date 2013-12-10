@@ -3,7 +3,7 @@ BEGIN {
   $WWW::DuckDuckGo::Icon::AUTHORITY = 'cpan:DDG';
 }
 {
-  $WWW::DuckDuckGo::Icon::VERSION = '0.015';
+  $WWW::DuckDuckGo::Icon::VERSION = '0.016';
 }
 # ABSTRACT: A DuckDuckGo Icon definition
 
@@ -36,8 +36,8 @@ has height => (
 
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -46,7 +46,7 @@ WWW::DuckDuckGo::Icon - A DuckDuckGo Icon definition
 
 =head1 VERSION
 
-version 0.015
+version 0.016
 
 =head1 SYNOPSIS
 
@@ -104,7 +104,7 @@ Issue Tracker
 
 =item *
 
-Torsten Raudssus <torsten@raudssus.de>
+Torsten Raudssus <torsten@raudss.us> L<https://raudss.us/>
 
 =item *
 
@@ -120,4 +120,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

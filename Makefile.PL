@@ -10,7 +10,7 @@ use ExtUtils::MakeMaker 6.30;
 
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Access to the DuckDuckGo APIs",
-  "AUTHOR" => "Torsten Raudssus <torsten\@raudssus.de>, Michael Smith <crazedpsyc\@duckduckgo.com>",
+  "AUTHOR" => "Torsten Raudssus <torsten\@raudss.us> L<https://raudss.us/>, Michael Smith <crazedpsyc\@duckduckgo.com>",
   "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
@@ -28,7 +28,7 @@ my %WriteMakefileArgs = (
   "TEST_REQUIRES" => {
     "Test::More" => "0.90"
   },
-  "VERSION" => "0.015",
+  "VERSION" => "0.016",
   "test" => {
     "TESTS" => "t/*.t"
   }
